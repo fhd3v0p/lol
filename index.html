@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>МЕРТВАЯ СТУДИЯ | 死霊記憶 glam memories</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="horror-meter">
+        <div>恐怖レベル</div>
+        <div class="horror-bar">
+            <div class="horror-fill" id="horrorFill"></div>
+        </div>
+    </div>
+
+    <div class="phone-container">
+        <div class="phone-header">
+            <span style="color: #fff;">●</span> Windows Mobile 2006 | 
+            <span style="color: #ddd;">02:47</span> | 
+            <span style="color: #ff6b6b;">🔋 18%</span>
+            <button id="debugBtn" onclick="toggleDebugMode()" style="position: absolute; top: 5px; right: 5px; background: #ff4444; color: white; border: none; padding: 2px 5px; font-size: 8px; border-radius: 2px;">DEBUG</button>
+        </div>
+        
+        <div class="phone-screen">
+            <!-- Boot Screen -->
+            <div id="bootScreen" class="boot-screen">
+                <div class="htc-logo anime-glitch">
+                    ◉ <span class="japanese-symbol">影</span> ТЕНЕВАЯ СТУДИЯ
+                </div>
+                <div style="font-size: 11px; color: #888; margin: 10px 0;">
+                    Модель: HTC P3300<br>
+                    Владелец: Юки Танака (田中雪)<br>
+                    Последний вход: <span class="japanese-symbol">３日前</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="bootProgress"></div>
+                </div>
+                
+                <div style="font-size: 9px; color: #ff6b6b; margin: 15px 0; text-align: center;" class="anime-glitch">
+                    📱 ТЕНЕВАЯ СТУДИЯ | 影の工房<br>
+                    💀 Последние записи пропавшей мастера Юки<br>
+                    🖤 Психоделический хоррор | Тату-искусство<br>
+                    ⚡ Найди убийцу, раскрой тайну<br>
+                    ✨ Только для 18+
+                </div>
+                
+                <div style="font-size: 10px; color: #ff6b6b; margin-top: 10px;" class="anime-glitch">
+                    ⚠ ДАННЫЕ ПОВРЕЖДЕНЫ ⚠<br>
+                    Восстановление памяти...
+                </div>
+                <div style="font-size: 9px; color: #444; margin-top: 15px;">
+                    [НАЖМИТЕ ЧТОБЫ РАССЛЕДОВАТЬ]
+                </div>
+            </div>
+
+            <!-- Desktop Screen -->
+            <div id="desktopScreen" class="desktop">
+                <div style="display: flex; justify-content: space-between; padding: 5px 0; font-size: 9px; color: #666; border-bottom: 1px solid #333; margin-bottom: 15px;">
+                    <span>📅 15 декабря 2005</span>
+                    <span style="color: #ff4444;">接続エラー</span>
+                </div>
+                
+                
+                <div class="desktop-grid" id="desktopApps">
+                    <!-- Apps will be populated by JavaScript -->
+                </div>
+                
+                <div style="text-align: center; font-size: 9px; color: #444; margin-top: 20px;">
+                    Внизу: <span style="color: #ff4444; animation: pulse 1s infinite;">●</span> мерцающий красный индикатор<br>
+                    "MEMORY CARD ERROR - <span class="japanese-symbol">破損</span> DATA"
+                </div>
+            </div>
+
+            <!-- Content screens will be populated by JavaScript -->
+            <div id="contentArea"></div>
+        </div>
+    </div>
+
+    <div style="text-align: center; padding: 20px; font-size: 10px; color: #444; border-top: 1px solid #333; margin-top: 30px;">
+        МЕРТВАЯ СТУДИЯ © 2005-2025 | <span class="japanese-symbol">美しい破滅</span>
+    </div>
+
+    <script src="game.js"></script>
+    <script src="chats.js"></script>
+</body>
+</html>

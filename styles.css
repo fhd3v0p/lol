@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'MS Sans Serif', 'Tahoma', 'Arial', sans-serif;
+    background: #c0c0c0;
+    color: #000;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    background-image: 
+        radial-gradient(circle at 20% 50%, transparent 20%, rgba(255,255,255,0.1) 21%, rgba(255,255,255,0.1) 34%, transparent 35%, transparent),
+        linear-gradient(0deg, transparent 24%, rgba(0,0,0,0.02) 25%, rgba(0,0,0,0.02) 26%, transparent 27%, transparent 74%, rgba(0,0,0,0.02) 75%, rgba(0,0,0,0.02) 76%, transparent 77%, transparent);
+}
+
+/* Cyberpunk scanlines effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 0, 150, 0.03) 2px,
+            rgba(255, 0, 150, 0.03) 4px
+        );
+    pointer-events: none;
+    z-index: 1000;
+    animation: scanlines 0.1s linear infinite;
+}
+
+@keyframes scanlines {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(4px); }
+}
+
+.phone-container {
+    max-width: 320px;
+    margin: 20px auto;
+    background: linear-gradient(145deg, #e0e0e0, #c0c0c0);
+    border: 2px outset #c0c0c0;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 
+        4px 4px 8px rgba(0,0,0,0.3),
+        inset 1px 1px 2px rgba(255,255,255,0.8);
+    position: relative;
+}
+
+.phone-header {
+    background: linear-gradient(180deg, #316AC5, #1E4176);
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #8A8A8A;
+    font-size: 11px;
+    color: white;
+    font-weight: bold;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.3);
+}
+
+.phone-screen {
+    background: linear-gradient(135deg, #3B68B3, #4F7AC5);
+    min-height: 500px;
+    padding: 15px;
+    position: relative;
+    background-image: 
+        radial-gradient(circle at 30% 40%, rgba(255,255,255,0.08) 0%, transparent 50%),
+        linear-gradient(45deg, transparent 49%, rgba(255,255,255,0.03) 50%, transparent 51%);
+}
+
+.boot-screen {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.htc-logo {
+    font-size: 24px;
+    color: #ff0096;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ff0096;
+    animation: cyber-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes cyber-glow {
+    0% { text-shadow: 0 0 10px #ff0096; }
+    100% { text-shadow: 0 0 20px #ff0096, 0 0 30px #ff0096; }
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #222;
+    border: 1px solid #444;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff0096, #ff4fc7);
+    width: 0%;
+    transition: width 2s ease-in-out;
+    box-shadow: 0 0 10px #ff0096;
+}
+
+.desktop {
+    display: none;
+}
+
+.desktop-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 20px;
+}
+
+.app-icon {
+    background: linear-gradient(145deg, #f0f0f0, #c0c0c0);
+    border: 1px outset #c0c0c0;
+    border-radius: 2px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    position: relative;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.app-icon:hover {
+    background: linear-gradient(145deg, #d8d8d8, #a8a8a8);
+    border: 1px inset #c0c0c0;
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.app-icon.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.app-emoji {
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.app-name {
+    font-size: 11px;
+    color: #000;
+    font-weight: normal;
+    flex-grow: 1;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.badge.new {
+    background: #ff0096;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.content-screen {
+    display: none;
+    background: #f0f0f0;
+    color: #000;
+    border: 2px inset #c0c0c0;
+    margin: 5px;
+    border-radius: 0;
+    padding: 15px;
+}
+
+.content-header {
+    background: linear-gradient(180deg, #316AC5, #1E4176);
+    padding: 10px;
+    border-bottom: 1px solid #8A8A8A;
+    margin: -15px -15px 15px -15px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.3);
+    gap: 10px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: #ff0096;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Message style for 2006 - like ICQ/SMS */
+.message-bubble {
+    margin: 5px 0;
+    padding: 8px 12px;
+    border-radius: 0;
+    width: 100%;
+    position: relative;
+    font-size: 11px;
+    line-height: 1.3;
+    word-wrap: break-word;
+    border: 1px solid #999;
+}
+
+.message-bubble.incoming {
+    background: #f0f0f0;
+    color: #000;
+    border: 1px inset #c0c0c0;
+    margin-bottom: 1px;
+}
+
+.message-bubble.outgoing {
+    background: #e0e0e0;
+    color: #000;
+    border: 1px outset #c0c0c0;
+    margin-bottom: 1px;
+}
+
+.message-bubble.system {
+    background: #ffcccc;
+    color: #000;
+    border: 1px solid #ff9999;
+    font-style: italic;
+    text-align: center;
+    margin: 5px 0;
+}
+
+.message-bubble.corrupted {
+    background: #000;
+    color: #ff4444;
+    border: 1px solid #ff4444;
+    animation: glitch 0.5s infinite alternate;
+    margin-bottom: 1px;
+}
+
+.message-time {
+    font-size: 9px;
+    color: #999;
+    margin-top: 5px;
+    text-align: right;
+}
+
+.message-sender {
+    font-size: 10px;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px 0;
+}
+
+@keyframes glitch {
+    0% { transform: translateX(0); filter: hue-rotate(0deg); }
+    25% { transform: translateX(-2px); filter: hue-rotate(90deg); }
+    50% { transform: translateX(2px); filter: hue-rotate(180deg); }
+    75% { transform: translateX(-1px); filter: hue-rotate(270deg); }
+    100% { transform: translateX(1px); filter: hue-rotate(360deg); }
+}
+
+.choice-btn {
+    display: block;
+    width: 100%;
+    background: #f0f0f0;
+    border: 1px outset #c0c0c0;
+    color: #000;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    font-family: inherit;
+    font-size: 11px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.choice-btn:hover {
+    background: #e0e0e0;
+    border: 1px inset #c0c0c0;
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.horror-meter {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 10px;
+    z-index: 100;
+}
+
+.horror-bar {
+    width: 100px;
+    height: 8px;
+    background: #222;
+    border: 1px solid #444;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.horror-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff0096, #ff6b6b, #ff4444);
+    width: 0%;
+    transition: width 1s ease;
+}
+
+/* Japanese symbols styling */
+.japanese-symbol {
+    color: #ff0096;
+    font-size: 16px;
+    text-shadow: 0 0 10px #ff0096;
+    font-weight: bold;
+}
+
+/* Anime-inspired glitch effects */
+.anime-glitch {
+    animation: anime-distortion 2s infinite;
+}
+
+@keyframes anime-distortion {
+    0% { filter: hue-rotate(0deg) saturate(1); }
+    25% { filter: hue-rotate(90deg) saturate(1.5); }
+    50% { filter: hue-rotate(180deg) saturate(0.8); }
+    75% { filter: hue-rotate(270deg) saturate(1.2); }
+    100% { filter: hue-rotate(360deg) saturate(1); }
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
+@keyframes dangerPulse {
+    0% { box-shadow: 0 0 10px rgba(255, 0, 150, 0.5); transform: scale(1); }
+    50% { box-shadow: 0 0 30px rgba(255, 68, 68, 0.8); transform: scale(1.05); }
+    100% { box-shadow: 0 0 10px rgba(255, 0, 150, 0.5); transform: scale(1); }
+}
