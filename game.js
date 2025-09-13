@@ -43,13 +43,8 @@ let gameState = {
     }
 };
 
-function updateHorrorMeter(level) {
-    gameState.horrorLevel = Math.min(100, level);
-    document.getElementById('horrorFill').style.width = gameState.horrorLevel + '%';
-}
-
 function increaseHorror(amount = 10) {
-    updateHorrorMeter(gameState.horrorLevel + amount);
+    gameState.horrorLevel = Math.min(100, gameState.horrorLevel + amount);
 }
 
 function showBootScreen() {
@@ -884,7 +879,6 @@ function toggleDebugMode() {
 
 // Initialize game
 function initGame() {
-    updateHorrorMeter(0);
     showBootScreen();
 }
 
